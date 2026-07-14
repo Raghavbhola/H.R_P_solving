@@ -1,0 +1,59 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'getTotalX' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts following parameters:
+#  1. INTEGER_ARRAY a
+#  2. INTEGER_ARRAY b
+#
+
+def getTotalX(a, b):
+    # Write your code here
+    counter = 0
+    for x in range(max(a), max(b)+1): #loop for all possible candidate no.
+    
+        #check 1: x is divivble for all element of a?
+        a_pass = True
+        for i in a:
+            if x % i != 0: #any remainder will get
+                a_pass = False
+                break
+                
+        #check 1: x is divivble for all element of b?
+        b_pass = True
+        for j in b:
+            if j % x != 0: #any remainder will get
+                b_pass = False
+                break
+        
+        if a_pass and b_pass: #it is valid  when a_pass & b_pass will pass.
+            counter += 1
+
+    return counter
+    
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    first_multiple_input = input().rstrip().split()
+
+    n = int(first_multiple_input[0])
+
+    m = int(first_multiple_input[1])
+
+    arr = list(map(int, input().rstrip().split()))
+
+    brr = list(map(int, input().rstrip().split()))
+
+    total = getTotalX(arr, brr)
+
+    fptr.write(str(total) + '\n')
+
+    fptr.close()
