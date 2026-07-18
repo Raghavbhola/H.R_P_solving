@@ -27,7 +27,8 @@ def breakingRecords(scores):
         if score < min_score:  # new worst score
             min_score = score
             min_count += 1
-    return max_count, min_count        
+    return max_count, min_count   
+
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
