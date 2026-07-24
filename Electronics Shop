@@ -10,14 +10,28 @@ def getMoneySpent(keyboards, drives, b):
     #
     # Write your code here.
     #
-    max_spent = -1
-    for i in keyboards:
-        for k in drives:
-            total = i+k
-        if total <= b and total > max_spent:
-            max_spent = total
-    return max_spent       
-           
+    keyboards.sort()  #keybord - ascending order
+    drives.sort(reverse=True) #drives - descending order 
+    
+    max_spent = -1   #max. affordable price
+    # for i in keyboards:
+    #     for k in drives:
+    #         total = i+k
+    #     if total <= b and total > max_spent:
+    #         max_spent = total
+    # return max_spent       
+    
+    i, k = 0, 0  # i = keyboards pointer, j = drives pointer. 
+    while i < len(keyboards) and k < len(drives):
+        total = keyboards[i] + drives[k] #total price of current pair
+        if total > b:   #greater than budget
+            k += 1    
+        else:           #under budget
+            max_spent = max(max_spent, total) #update the max.
+            i += 1
+    return max_spent            
+    
+
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
