@@ -8,6 +8,7 @@ import sys
 
 # Complete the jumpingOnClouds function below.
 def jumpingOnClouds(c, k):
+
     energy = 100
     n = len(c)
     pos = 0
