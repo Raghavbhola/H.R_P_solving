@@ -17,16 +17,23 @@ import sys
 
 def repeatedString(s, n):
     # Write your code here
-    re = (s * ((n // len(s)) +1))[:n]
+    # re = (s * ((n // len(s)) +1))[:n]
     
-    freq = {}
-    for i in re:
-        if i in freq:
-            freq[i] += 1
-        else:
-            freq[i] = 1
-    if "a" in freq:
-        return freq["a"]          
+    # freq = {}
+    # for i in re:
+    #     if i in freq:
+    #         freq[i] += 1
+    #     else:
+    #         freq[i] = 1
+    # if "a" in freq:
+    #     return freq["a"] 
+    # else:
+    #     return "0"             
+    count_a = s.count("a")  #count 'a' in full str
+    full_repeat = n // len(s)
+    reminder = n % len(s)
+    total_a = count_a * full_repeat + s[:reminder].count("a")
+    return total_a
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
