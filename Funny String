@@ -1,5 +1,6 @@
 #!/bin/python3
 
+
 import math
 import os
 import random
@@ -15,6 +16,7 @@ import sys
 
 def funnyString(s):
     # Write your code here
+
     code_s = [ord(c) for c in s]
     diff_s = []
     for i in range(len(code_s) - 1):
@@ -22,7 +24,7 @@ def funnyString(s):
         diff_s.append(minus_s)
         
     
-    r = s[::-1] #reverse a str
+    r = s[::-1]       #reverse a str (s)
     code_r = [ord(c) for c in r]
     diff_r = []
     
