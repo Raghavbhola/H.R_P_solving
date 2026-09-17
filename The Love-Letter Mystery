@@ -18,7 +18,7 @@ def theLoveLetterMystery(s):
     
     s = list(s)
     
-    count = 0
+    count = 0     #pointer
     left = 0
     right = len(s) - 1
     
@@ -27,7 +27,8 @@ def theLoveLetterMystery(s):
         left += 1
         right -= 1
 
-    return count        
+    return count     
+
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
