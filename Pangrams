@@ -15,11 +15,14 @@ import sys
 
 def pangrams(s):
     # Write your code here
-    for i in s:
-        if i is str:
-            return "pangram"
-        else:
-            return "not pangram"    
+    # for i in s:
+    s = s.lower()
+    letter = set(s)
+    
+    if len([ch for ch in letter if 'a' <= ch <= 'z']) == 26:
+        return "pangram"
+    else:
+        return "not pangram"    
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
