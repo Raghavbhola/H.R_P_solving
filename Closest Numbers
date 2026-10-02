@@ -15,12 +15,14 @@ import sys
 
 def closestNumbers(arr):
     # Write your code here
+
     arr.sort()
     # sub = []
     # for i in range(len(arr)-1):
     #     sub.append((arr[i],arr[i+1]))
+
     min_d = min(abs(arr[i]-arr[i+1]) for i in range(len(arr)-1))
-    diff = []    
+    diff = []    #empty list to store abs min.
     for i in range(len(arr)-1):
         if abs(arr[i] - arr[i+1]) == min_d:
             diff.extend([arr[i],arr[i+1]])
