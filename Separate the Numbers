@@ -14,8 +14,24 @@ import sys
 
 def separateNumbers(s):
     # Write your code here
-             
+    # return s
+    n = len(s)
     
+    if n == 1:
+        print("NO")
+        return
+    
+    for l in range(1,n//2 + 1):
+        first = int(s[:l])
+        num = first
+        built = str(num)
+        while len(built) < n:
+            num += 1
+            built += str(num)
+        if built == s:
+            print("YES", first)
+            return
+    print("NO")                  
     
 
 if __name__ == '__main__':
