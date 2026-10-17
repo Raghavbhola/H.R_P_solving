@@ -15,6 +15,7 @@ import sys
 
 def marsExploration(s):
     # Write your code here
+
     msg = "SOS"
     n = len(s)
     
