@@ -12,22 +12,26 @@ import sys
 # The function is expected to return an INTEGER.
 # The function accepts STRING s as parameter.
 #
+from collections import Counter
 
 def anagram(s):
     # Write your code here
-    n = len(s)// 2
-# print(s[:n], s[n:])
-    s1 = sorted(s[:n])
-    s2 = sorted(s[n:])
-    print(s1,s2)
-    count = 0
-    for i in range(n):
-        if s1[i] != s2[i]:
-            count += 1
-    if n // 2:
-        return count
-    else:
-        return "-1"            
+    if len(s) % 2 != 0:
+        return "-1"
+    else:    
+        n = len(s)// 2
+    # print(s[:n], s[n:])
+    
+        s1 = s[:n]
+        s2 = s[n:]
+        # print(s1,s2)
+        c1 = Counter(s1)
+        c2 = Counter(s2)
+        count = 0
+        for ch in c1:
+            if c1[ch] > c2[ch]:
+                count += c1[ch] - c2[ch]
+        return count       
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
